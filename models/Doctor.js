@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const appointmentSchema = require('./Appointment'); // Randevu şemasını import et
+const appointmentSchema = require('./Appointment'); 
 
-// Doktor şeması
 const doctorSchema = new Schema({
   name: {
     type: String,

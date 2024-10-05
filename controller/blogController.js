@@ -3,8 +3,7 @@ const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 
 exports.createBlog = async (req, res) => {
-  // console.log('req', req.body);
-
+  
   const result = await cloudinary.uploader.upload(
     req.files.image.tempFilePath,
     {

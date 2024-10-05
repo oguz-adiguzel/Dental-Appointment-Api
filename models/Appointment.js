@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Randevu şeması
 const appointmentSchema = new Schema({
   patientName: {
     type: String,

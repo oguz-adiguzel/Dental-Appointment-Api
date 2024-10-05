@@ -1,28 +1,18 @@
 const nodemailer = require('nodemailer');
-const { v4: uuidv4 } = require('uuid'); // Kod üretmek için uuid paketi kullanıyoruz.
+const { v4: uuidv4 } = require('uuid'); 
 
-let verificationCodes = {}; // Doğrulama kodlarını saklamak için geçici bir obje (Bu objeyi prod ortamda veritabanında tutmanız daha güvenlidir).
+let verificationCodes = {}; 
 
 // Email doğrulama kodu gönderme fonksiyonu
 exports.sendVerificationCode = async (req, res) => {
     const { email } = req.body;
 
     // Benzersiz bir doğrulama kodu oluştur
-    const verificationCode = uuidv4().split('-')[0]; // UUID'den sadece ilk kısmı alıyoruz (6 karakter)
+    const verificationCode = uuidv4().split('-')[0]; 
 
     // Kodu geçici objeye kaydet
     verificationCodes[email] = verificationCode;
 
-    // Nodemailer ile email gönderme işlemi
-    // const transporter = nodemailer.createTransport({
-    //     host: 'smtp.outlook.com',
-    //     port: 587,
-    //     secure:false,
-    //     auth: {
-    //         user: 'ogzdgzl@hotmail.com',
-    //         pass: '05442385843',
-    //     }
-    // });
 
     const outputMessage = `
    <div style="width:100%; display:flex; justify-content:center; align-items:center">
@@ -33,9 +23,6 @@ exports.sendVerificationCode = async (req, res) => {
     </div>
    </div>
     `
-  
-    
-
     const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
         port: 587,
@@ -45,25 +32,6 @@ exports.sendVerificationCode = async (req, res) => {
         }
     });
 
-    // const transporter = nodemailer.createTransport({
-    //     service: 'hotmail',  // Hotmail veya Outlook kullanıyorsanız bu alanı 'hotmail' olarak bırakın
-    //     auth: {
-    //         user: 'oguz_adiguzel@outlook.com',    // Outlook e-posta adresiniz
-    //         pass: '2015ea2019zaa'          // Outlook uygulama şifreniz (normal şifre değil!)
-    //     }
-    // });
-
-    // const transporter = nodemailer.createTransport({
-    //     host: 'smtp.outlook.com',
-    // port: 465,
-    // secure: true, // use SSL
-    //     auth: {
-    //         user: 'ogzdgzl@hotmail.com',
-    //         pass: '05442385843'
-    //     }
-    // });
-
-    // E-posta içeriğini ayarla
     let mailOptions = {
         from: '"Dental Online Randevu Sistemi" <ogzdgzl@hotmail.com>',
         to: email,

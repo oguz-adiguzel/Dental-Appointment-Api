@@ -17,6 +17,4 @@ router.post('/', doctorController.addDoctor)
 //tüm doktorları getir
 router.get('/', doctorController.getAllDoctor);
 
-// Doğrulama kodu gönderme (Telefon numarası doğrulama)
-
 module.exports = router

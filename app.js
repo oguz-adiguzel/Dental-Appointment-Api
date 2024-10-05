@@ -20,13 +20,6 @@ cloudinary.config({
   api_secret: process.env.CLOUD_API_SECRET,
 });
 
-// MongoDB Bağlantısı
-// mongoose.connect('mongodb://localhost/dental_appointments', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// }).then(() => console.log('MongoDB connected'))
-//   .catch(err => console.error('MongoDB connection error:', err));
-
 mongoose
   .connect(`mongodb+srv://oguzadiguzel:${process.env.MONGO_DB_PASSWORD}@cluster0.nesm6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`, {
     // useNewUrlParser: true,

@@ -22,10 +22,10 @@ cloudinary.config({
 
 mongoose
   .connect(`mongodb+srv://oguzadiguzel:${process.env.MONGO_DB_PASSWORD}@cluster0.nesm6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-    // useFindAndModify: false,
-    // useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
   })
   .then(() => {
     console.log("DB Connected Susccesfuly");

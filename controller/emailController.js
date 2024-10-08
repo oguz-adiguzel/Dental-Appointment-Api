@@ -28,7 +28,7 @@ exports.sendVerificationCode = async (req, res) => {
         port: 587,
         auth: {
             user: 'kenya.klein11@ethereal.email',
-            pass: 'K6S3uZBv9FXQYmYG3s'
+            
         }
     });
 

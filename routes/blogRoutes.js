@@ -1,5 +1,6 @@
 const express = require('express')
 const blogController = require('../controller/blogController')
+const verifyToken = require('../middlewares/verifyToken')
 const router = express.Router()
 
 //Blog oluştur

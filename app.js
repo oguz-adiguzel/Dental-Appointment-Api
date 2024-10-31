@@ -16,6 +16,7 @@ app.use(express.json());
 // İsteklerdeki gizli anahtarı kontrol eden middleware
 const authMiddleware = (req, res, next) => {
   const apiKey = req.headers["x-api-key"];
+
   if (apiKey && apiKey === process.env.API_SECRET_KEY) {
     next();
   } else {

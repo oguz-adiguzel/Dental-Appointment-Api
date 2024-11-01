@@ -8,12 +8,11 @@ const cors = require("cors");
 const app = express();
 const cloudinary = require("cloudinary").v2;
 const fileUpload = require("express-fileupload");
-const path = require("path"); // path modülünü ekliyoruz
+const path = require("path"); 
 require("dotenv").config();
 
 app.use(express.json());
 
-// İsteklerdeki gizli anahtarı kontrol eden middleware
 const authMiddleware = (req, res, next) => {
   const apiKey = req.headers["x-api-key"];
 

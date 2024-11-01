@@ -147,10 +147,7 @@ exports.getAllAppointment = async (req, res) => {
 
 // Belirtilen tarih için uygun zaman dilimlerini kontrol et
 exports.checkAvailability = async (req, res) => {
-  const { doctorId, date } = req.body;
-
-  console.log('date', date);
-  
+  const { doctorId, date } = req.body;  
 
   try {
     const doctor = await Doctor.findById(doctorId);
@@ -340,9 +337,6 @@ exports.closeDate = async (req, res) => {
   const { date } = req.body;
 
   try {
-    // Tarihi `Date` formatına dönüştürme
-    // const closedDate = new Date(date);
-
     // Doktoru güncelleme
     await Doctor.findByIdAndUpdate(
       doctorId,
